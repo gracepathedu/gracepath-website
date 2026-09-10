@@ -792,14 +792,6 @@ section {
     padding-top: 150px;
   }
 
-  .hero-video {
-    display: none;
-  }
-
-  .hero {
-    background: url("../assets/hero-sydney.jpg") center 65% / cover no-repeat;
-  }
-
   .footer-grid {
     grid-template-columns: 1fr 1fr;
   }
