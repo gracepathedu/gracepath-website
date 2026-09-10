@@ -1,6 +1,13 @@
 (function () {
   "use strict";
 
+  // Always start at the top on a fresh load/refresh, instead of the
+  // browser restoring whatever scroll position the visitor was last at.
+  if ("scrollRestoration" in history) {
+    history.scrollRestoration = "manual";
+  }
+  window.scrollTo(0, 0);
+
   // Header: transparent (with a white logo/nav) while it overlaps the hero
   // video, solid once the visitor scrolls past it.
   var header = document.querySelector(".site-header");
