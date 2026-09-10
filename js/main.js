@@ -1,6 +1,18 @@
 (function () {
   "use strict";
 
+  // Header: transparent (with a white logo/nav) while it overlaps the hero
+  // video, solid once the visitor scrolls past it.
+  var header = document.querySelector(".site-header");
+
+  if (header) {
+    var updateHeaderState = function () {
+      header.classList.toggle("solid", window.scrollY > 40);
+    };
+    updateHeaderState();
+    window.addEventListener("scroll", updateHeaderState, { passive: true });
+  }
+
   // Hero video: only autoplay if the visitor hasn't asked for reduced motion.
   // Otherwise the poster image (a still frame of the same footage) is shown instead.
   var heroVideo = document.getElementById("hero-video");

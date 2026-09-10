@@ -151,11 +151,19 @@ p {
    -------------------------------------------------------------------------- */
 
 .site-header {
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
   z-index: 100;
+  background: transparent;
+  border-bottom: 1px solid transparent;
+  transition: background-color 0.25s ease, border-color 0.25s ease;
+}
+
+.site-header.solid {
   background: var(--paper);
-  border-bottom: 1px solid var(--line);
+  border-bottom-color: var(--line);
 }
 
 .site-header .container {
@@ -175,6 +183,11 @@ p {
 .brand img {
   height: 52px;
   width: auto;
+  transition: filter 0.25s ease;
+}
+
+.site-header:not(.solid) .brand img {
+  filter: brightness(0) invert(1);
 }
 
 .main-nav {
@@ -193,11 +206,16 @@ p {
 
 .main-nav a {
   text-decoration: none;
-  color: var(--ink);
+  color: var(--white);
   font-size: 15px;
   font-weight: 500;
   position: relative;
   padding-bottom: 4px;
+  transition: color 0.25s ease;
+}
+
+.site-header.solid .main-nav a {
+  color: var(--ink);
 }
 
 .main-nav a::after {
@@ -227,9 +245,18 @@ p {
   display: block;
   width: 26px;
   height: 2px;
-  background: var(--navy);
+  background: var(--white);
   margin: 6px 0;
-  transition: transform 0.2s ease, opacity 0.2s ease;
+  transition: transform 0.2s ease, opacity 0.2s ease, background-color 0.25s ease;
+}
+
+.site-header.solid .nav-toggle span,
+.main-nav.open ~ div .nav-toggle span {
+  background: var(--navy);
+}
+
+.main-nav.open a {
+  color: var(--ink);
 }
 
 /* --------------------------------------------------------------------------
