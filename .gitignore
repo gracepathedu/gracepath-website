@@ -1,0 +1,15 @@
+# Raw source footage, photos and archives - not needed for the live site
+raw-footage/
+video-previews/
+*.MP4
+*.mp4.orig
+/*.JPG
+/*.jpg
+/Logo*.png
+
+# Keep the compressed assets used by the site
+!assets/**/*.mp4
+!assets/**/*.jpg
+
+# Internal tools not part of the public site
+enquiries-dashboard.html
